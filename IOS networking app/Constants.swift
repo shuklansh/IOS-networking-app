@@ -11,4 +11,15 @@ extension String {
     var replaceSpaceWithPlus: String {
         self.replacingOccurrences(of: " ", with: "+")
     }
+    var replaceSpaceWithNothing: String {
+        self.replacingOccurrences(of: " ", with: "")
+    }
+    var lowerNoSpaces: String  {
+        self.replaceSpaceWithNothing.lowercased()
+    }
+}
+
+enum Constants {
+    static let bcsName = "Better Call Saul"
+    static let bbName = "Breaking Bad"
 }

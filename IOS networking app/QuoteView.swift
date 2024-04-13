@@ -15,7 +15,7 @@ struct QuoteView: View {
 //        GeometryReader { geo in
             // used to adapt app to screen size
             ZStack {
-                Image(show.lowercased().filter { $0 != " " })
+                Image(show.lowerNoSpaces)
                     .resizable()
                     
                 LazyVStack {
@@ -99,7 +99,7 @@ struct QuoteView: View {
 
 #Preview {
     QuoteView(
-        show:"Breaking Bad"
+        show: Constants.bcsName
     )
         .preferredColorScheme(.dark)
 }
