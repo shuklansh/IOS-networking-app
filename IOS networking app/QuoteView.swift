@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuoteView: View {
-    @StateObject private var viewModel = ViewModel(controller: FetchController()) 
+    @StateObject private var viewModel = ViewModel(controller: FetchController())
     // instantiates observable
     let show: String
     var body: some View {
@@ -32,12 +32,27 @@ struct QuoteView: View {
                             
                             
                             ZStack(alignment: .bottom) {
-                                AsyncImage(url: data.character.images.first)  {
-                                    image in image.resizable()
-                                        .scaledToFit()
-                                } placeholder: {
-                                    ProgressView()
-                                }
+                                AsyncImage(url: data.character.images.first) { phase in
+                                        if let image = phase.image  {
+                                            image
+                                                .resizable()
+                                                .scaledToFit()
+                                        } else if phase.error != nil {
+                                            Image(systemName: "exclamationmark.triangle")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .padding()
+                                            // the error here is "cancelled" on any view that wasn't visible at app launch
+                                       } else {
+                                            ProgressView()
+                                        }
+                                    }
+//                                AsyncImage(url: imageLink)  {
+//                                    image in image.resizable()
+//                                        .scaledToFit()
+//                                } placeholder: {
+//                                    ProgressView()
+//                                }
                                 Text(data.character.name)
                                 .frame(maxWidth: .infinity)
                                 .foregroundStyle(.white)
@@ -46,10 +61,8 @@ struct QuoteView: View {
                             }
                             .cornerRadius(24)
                             
-                        case .IN_PROGRESS:
-                        ZStack(alignment: .bottom) {
-                            ProgressView()
-                        }
+                        case .NOT_STARTED:
+                        EmptyView()
                         case .FAILURE(let error):
                         ZStack(alignment: .bottom) {
                             Text("error fetching quotes: \(error.localizedDescription)")
@@ -59,7 +72,10 @@ struct QuoteView: View {
                                 .cornerRadius(12)
                         }
                         default:
-                            EmptyView()
+                        ZStack(alignment: .bottom) {
+                            ProgressView()
+                        }
+                            
                     }
                     
                     Button {
