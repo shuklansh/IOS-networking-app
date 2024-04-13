@@ -16,7 +16,7 @@ struct FetchController {
     
     func fetchQuote(from show: String) async throws -> Quote {
         // building url starts
-        let quoteUrl = baseUrl.appending(path: "quotes/random")
+        let quoteUrl = baseUrl.appending(path: "quotes/random?\(show.replaceSpaceWithPlus)")
         var quoteComponents = URLComponents(
             url: quoteUrl,
             resolvingAgainstBaseURL: true
