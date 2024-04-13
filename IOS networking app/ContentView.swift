@@ -11,14 +11,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Text("Breaking Bad Quotes")
+            QuoteView(show:"Breaking bad")
                 .tabItem {
                     Label(
                         "Breaking Bad",
                         systemImage: "tortoise"
                     )
                 }
-            Text("Better Call Saul Quotes")
+            QuoteView(show:"Better Call Saul")            
                 .tabItem {
                     Label(
                         "Better Call Saul",
