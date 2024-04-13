@@ -17,6 +17,7 @@
 		1BD7909F2BC830B1002EA6F7 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7909E2BC830B1002EA6F7 /* Quote.swift */; };
 		1BD790A12BC83126002EA6F7 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD790A02BC83126002EA6F7 /* Character.swift */; };
 		1BD790A42BC832C1002EA6F7 /* FetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD790A32BC832C1002EA6F7 /* FetchController.swift */; };
+		1BD790A62BCA5536002EA6F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD790A52BCA5536002EA6F7 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1BD7909E2BC830B1002EA6F7 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		1BD790A02BC83126002EA6F7 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		1BD790A32BC832C1002EA6F7 /* FetchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchController.swift; sourceTree = "<group>"; };
+		1BD790A52BCA5536002EA6F7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				1BD790A22BC8326F002EA6F7 /* data models */,
 				1BD64E8E2BC6267B00B093C7 /* IOS_networking_appApp.swift */,
 				1BD790A32BC832C1002EA6F7 /* FetchController.swift */,
+				1BD790A52BCA5536002EA6F7 /* Constants.swift */,
 				1BD64E902BC6267B00B093C7 /* ContentView.swift */,
 				1BD64E922BC6269500B093C7 /* Assets.xcassets */,
 				1BD64E942BC6269500B093C7 /* IOS_networking_app.entitlements */,
@@ -281,6 +284,7 @@
 				1BD64E8F2BC6267B00B093C7 /* IOS_networking_appApp.swift in Sources */,
 				1BD790A42BC832C1002EA6F7 /* FetchController.swift in Sources */,
 				1BD790A12BC83126002EA6F7 /* Character.swift in Sources */,
+				1BD790A62BCA5536002EA6F7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
