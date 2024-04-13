@@ -52,13 +52,19 @@ struct QuoteView: View {
                                 height: geo.size.height * 0.7
                             )
                         case .IN_PROGRESS:
+                        ZStack(alignment: .bottom) {
+                            padding()
                             ProgressView()
+                        }
                         case .FAILURE(let error):
-                            Text("error fetching quotes")
-                            .foregroundColor(.red)
-                            .padding()
-                            .background(Color.black.opacity(0.7))
-                            .cornerRadius(12)
+                        ZStack(alignment: .bottom) {
+                            padding()
+                            Text("error fetching quotes: \(error.localizedDescription)")
+                                .foregroundColor(.red)
+                                .padding()
+                                .background(Color.black.opacity(0.7))
+                                .cornerRadius(12)
+                        }
                         default:
                             EmptyView()
                     }
