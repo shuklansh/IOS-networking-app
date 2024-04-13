@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            QuoteView(show:"Breaking bad")
+            QuoteView(show:"Breaking Bad")
                 .tabItem {
                     Label(
                         "Breaking Bad",

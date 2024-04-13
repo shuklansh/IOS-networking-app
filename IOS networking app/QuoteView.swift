@@ -12,17 +12,13 @@ struct QuoteView: View {
     // instantiates observable
     let show: String
     var body: some View {
-        GeometryReader { geo in
+//        GeometryReader { geo in
             // used to adapt app to screen size
             ZStack {
                 Image(show.lowercased().filter { $0 != " " })
                     .resizable()
-                    .frame(
-                        width: geo.size.width * 2.7,
-                        height: geo.size.height * 1.2
-                    )
-                VStack {
-                    Spacer(minLength: 140)
+                    
+                LazyVStack {
                     switch viewModel.status {
                         case .SUCCESS(let data):
                             Text(
@@ -33,32 +29,29 @@ struct QuoteView: View {
                             .cornerRadius(12)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .frame( width: geo.size.width)
+                            
                             
                             ZStack(alignment: .bottom) {
-                                Image("jessepinkman")
-                                    .resizable()
-                                    .scaledToFit()
-                                Text( "pesse jinkman"
-                                )
+                                AsyncImage(url: data.character.images.first)  {
+                                    image in image.resizable()
+                                        .scaledToFit()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                Text(data.character.name)
                                 .frame(maxWidth: .infinity)
                                 .foregroundStyle(.white)
                                 .padding(10)
                                 .background(.ultraThinMaterial)
                             }
                             .cornerRadius(24)
-                            .frame(
-                                width: geo.size.width * 0.7,
-                                height: geo.size.height * 0.7
-                            )
+                            
                         case .IN_PROGRESS:
                         ZStack(alignment: .bottom) {
-                            padding()
                             ProgressView()
                         }
                         case .FAILURE(let error):
                         ZStack(alignment: .bottom) {
-                            padding()
                             Text("error fetching quotes: \(error.localizedDescription)")
                                 .foregroundColor(.red)
                                 .padding()
@@ -79,21 +72,13 @@ struct QuoteView: View {
                             .padding()
                             .background(Color.black.opacity(0.7))
                             .cornerRadius(12)
-                            .frame(
-                                width: geo.size.width,
-                                height: geo.size.height
-                            )
                     }
                 }
                 .padding()
             }
-            .frame(
-                width:geo.size.width,
-                height:geo.size.height
-            )
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
-    }
+//    }
 }
 
 #Preview {

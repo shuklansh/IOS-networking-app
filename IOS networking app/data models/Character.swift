@@ -10,8 +10,8 @@ import Foundation
 struct Character: Decodable {
     let name: String
     let birthday: String
-    let occupation: [String] // list of strings
-    let image: [URL] // url are mostly strings so common form made by swift: URL
+    let occupations: [String] // list of strings
+    let images: [URL] // url are mostly strings so common form made by swift: URL
     let aliases: [String]
-    let portayedBy: String
+//    let portrayedBy: String
 }
