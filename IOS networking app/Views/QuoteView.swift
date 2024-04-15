@@ -10,6 +10,7 @@ import SwiftUI
 struct QuoteView: View {
     @StateObject private var viewModel = ViewModel(controller: FetchController())
     // instantiates observable
+    @State var showCharacterDetails = false
     let show: String
     var body: some View {
 //        GeometryReader { geo in
@@ -61,6 +62,16 @@ struct QuoteView: View {
                                         .background(.ultraThinMaterial)
                                 }
                                 .cornerRadius(24)
+                                .onTapGesture {
+                                    // show screen
+                                    showCharacterDetails.toggle()
+                                }
+                                .sheet(isPresented: $showCharacterDetails, content: {
+                                    CharacterView(
+                                        show: show,
+                                        character: data.character
+                                    )
+                                })
                                 
                             case .NOT_STARTED:
                                 EmptyView()

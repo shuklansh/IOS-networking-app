@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B682EA92BCD78A600BD8263 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B682EA82BCD78A600BD8263 /* CharacterView.swift */; };
 		1BD64E8F2BC6267B00B093C7 /* IOS_networking_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD64E8E2BC6267B00B093C7 /* IOS_networking_appApp.swift */; };
 		1BD64E912BC6267B00B093C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD64E902BC6267B00B093C7 /* ContentView.swift */; };
 		1BD64E932BC6269500B093C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD64E922BC6269500B093C7 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B682EA82BCD78A600BD8263 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		1BD64E8B2BC6267B00B093C7 /* IOS networking app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IOS networking app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD64E8E2BC6267B00B093C7 /* IOS_networking_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_networking_appApp.swift; sourceTree = "<group>"; };
 		1BD64E902BC6267B00B093C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B682EA72BCD785100BD8263 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1BD790AA2BCA5F74002EA6F7 /* QuoteView.swift */,
+				1B682EA82BCD78A600BD8263 /* CharacterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1BD64E822BC6267900B093C7 = {
 			isa = PBXGroup;
 			children = (
@@ -107,13 +118,13 @@
 		1BD64E8D2BC6267B00B093C7 /* IOS networking app */ = {
 			isa = PBXGroup;
 			children = (
+				1B682EA72BCD785100BD8263 /* Views */,
 				1BD790A72BCA570C002EA6F7 /* network */,
 				1BD790A22BC8326F002EA6F7 /* data models */,
 				1BD64E8E2BC6267B00B093C7 /* IOS_networking_appApp.swift */,
 				1BD790A82BCA574B002EA6F7 /* ViewModel.swift */,
 				1BD790A52BCA5536002EA6F7 /* Constants.swift */,
 				1BD64E902BC6267B00B093C7 /* ContentView.swift */,
-				1BD790AA2BCA5F74002EA6F7 /* QuoteView.swift */,
 				1BD64E922BC6269500B093C7 /* Assets.xcassets */,
 				1BD64E942BC6269500B093C7 /* IOS_networking_app.entitlements */,
 				1BD64E952BC6269500B093C7 /* Preview Content */,
@@ -299,6 +310,7 @@
 				1BD790AB2BCA5F74002EA6F7 /* QuoteView.swift in Sources */,
 				1BD790A42BC832C1002EA6F7 /* FetchController.swift in Sources */,
 				1BD790A12BC83126002EA6F7 /* Character.swift in Sources */,
+				1B682EA92BCD78A600BD8263 /* CharacterView.swift in Sources */,
 				1BD790A62BCA5536002EA6F7 /* Constants.swift in Sources */,
 				1BD790A92BCA574B002EA6F7 /* ViewModel.swift in Sources */,
 			);
