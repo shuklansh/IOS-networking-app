@@ -13,26 +13,29 @@ struct QuoteView: View {
     @State var showCharacterDetails = false
     let show: String
     var body: some View {
-//        GeometryReader { geo in
-            // used to adapt app to screen size
+        NavigationStack {
             ZStack {
                 Image(show.lowerNoSpaces)
                     .resizable()
-                    
+                
                 LazyVStack {
                     VStack {
-                            switch viewModel.status {
-                            case .SUCCESS(let data):
-                                Text(
-                                    "\"\(data.quote.quote)\""
-                                )
-                                .padding(.horizontal)
-                                .background(.black.opacity(0.5))
-                                .cornerRadius(12)
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
-                                
-                                
+                        switch viewModel.status {
+                        case .SUCCESS(let data):
+                            Text(
+                                "\"\(data.quote.quote)\""
+                            )
+                            .padding(.horizontal)
+                            .background(.black.opacity(0.5))
+                            .cornerRadius(12)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            
+                            NavigationLink {
+                                CharacterView(
+                                    show: show,
+                                    character: data.character                                    )
+                            } label : {
                                 ZStack(alignment: .bottom) {
                                     AsyncImage(url: data.character.images.first) { phase in
                                         if let image = phase.image  {
@@ -49,12 +52,12 @@ struct QuoteView: View {
                                             ProgressView()
                                         }
                                     }
-                                    //                                AsyncImage(url: imageLink)  {
-                                    //                                    image in image.resizable()
-                                    //                                        .scaledToFit()
-                                    //                                } placeholder: {
-                                    //                                    ProgressView()
-                                    //                                }
+//                                AsyncImage(url: imageLink)  {
+//                                    image in image.resizable()
+//                                        .scaledToFit()
+//                                } placeholder: {
+//                                    ProgressView()
+//                                }
                                     Text(data.character.name)
                                         .frame(maxWidth: .infinity)
                                         .foregroundStyle(.white)
@@ -66,30 +69,31 @@ struct QuoteView: View {
                                     // show screen
                                     showCharacterDetails.toggle()
                                 }
-                                .sheet(isPresented: $showCharacterDetails, content: {
-                                    CharacterView(
-                                        show: show,
-                                        character: data.character
-                                    )
-                                })
-                                
-                            case .NOT_STARTED:
-                                EmptyView()
-                            case .FAILURE(let error):
-                                ZStack(alignment: .bottom) {
-                                    Text("error fetching quotes: \(error.localizedDescription)")
-                                        .foregroundColor(.red)
-                                        .padding()
-                                        .background(Color.black.opacity(0.7))
-                                        .cornerRadius(12)
-                                }
-                            default:
-                                ZStack(alignment: .bottom) {
-                                    ProgressView()
-                                }
-                                
                             }
+//                                .sheet(isPresented: $showCharacterDetails, content: {
+//                                    CharacterView(
+//                                        show: show,
+//                                        character: data.character
+//                                    )
+//                                })
+                            
+                        case .NOT_STARTED:
+                            EmptyView()
+                        case .FAILURE(let error):
+                            ZStack(alignment: .bottom) {
+                                Text("error fetching quotes: \(error.localizedDescription)")
+                                    .foregroundColor(.red)
+                                    .padding()
+                                    .background(Color.black.opacity(0.7))
+                                    .cornerRadius(12)
+                            }
+                        default:
+                            ZStack(alignment: .bottom) {
+                                ProgressView()
+                            }
+                            
                         }
+                    }
                     
                     Button {
                         Task {
@@ -105,9 +109,10 @@ struct QuoteView: View {
                 }
                 .padding()
             }
+            .navigationTitle("")
             .ignoresSafeArea()
         }
-//    }
+    }
 }
 
 #Preview {
